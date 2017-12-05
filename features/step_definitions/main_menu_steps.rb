@@ -12,9 +12,9 @@ Then('I should see left side menu') do
 end
 
 When('I press on My conversions button') do
-  puts('My conversions button pressed')
+  text("Мои конверсии").click
 end
 
 Then('I land on My conversions screen') do
-  puts('landed on My conversions screen')
+  text("Личные конверсии не созданы")
 end

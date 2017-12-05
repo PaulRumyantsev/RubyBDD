@@ -27,3 +27,11 @@ Feature: Test for home screen functionality
     |2     |24    |
     |3     |36    |
     |9     |106   |
+
+  @wip
+  Scenario: User able to add current conversion to Favorites list
+    Given I land on home screen
+    Then I press on Favorites icon
+    When I press on menu icon
+    Then I press on Favorites conversions
+    And I verify "Длина" added to Favorite conversions list

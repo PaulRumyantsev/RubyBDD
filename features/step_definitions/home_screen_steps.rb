@@ -30,3 +30,15 @@ Then(/^I should see result as "([^"]*)"$/) do |result|
   puts("result is #{result}")
 end
 
+
+Then(/^I press on Favorites icon$/) do
+  find_element(id: "action_add_favorites").click
+end
+
+Then(/^I press on Favorites conversions$/) do
+  text("Избранные конверсии").click
+end
+
+And(/^I verify "([^"]*)" added to Favorite conversions list$/) do |unit_type|
+  text(unit_type)
+end
