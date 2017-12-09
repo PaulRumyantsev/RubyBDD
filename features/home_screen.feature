@@ -35,3 +35,15 @@ Feature: Test for home screen functionality
     When I press on menu icon
     Then I press on Favorites conversions
     And I verify "Длина" added to Favorite conversions list
+
+ @wip
+  Scenario: User able to search by existing Conversion type
+    Given I land on home screen
+    Then I press in search icon
+    Then I type "Temperature" in search field
+    And I press return button on soft keyboard
+    Then I see "Temperature" as a current unit converter
+    Then Left Unit picker value should be "Celsius"
+    And Right unit picker value should be "Fahrenheit"
+
+
