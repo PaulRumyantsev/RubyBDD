@@ -33,11 +33,14 @@ When('I press on Clear button') do
 end
 
 When(/^I type "([^"]*)" to target text field$/) do |target|
-  puts('target is ' + target)
+  find_element(id: "keypad").find_element(xpath: "// android.widget.Button[@text='#{target}']").click
 end
 
 Then(/^I should see result as "([^"]*)"$/) do |result|
-  puts("result is #{result}")
+  value = find_element(id: 'target_value').text
+  if value != result
+    fail("expected value is #{value}, actual value is #{result}")
+  end
 end
 
 Then(/^I press on Favorites icon$/) do
@@ -55,7 +58,8 @@ end
 
 
 Then(/^I press in search icon$/) do
-  find_element(id: 'action_search').click
+  find_element(id: "action_bar").find_element(id: 'action_search').click
+  #find_element(id: 'action_search').click
 end
 
 Then(/^I type "([^"]*)" in search field$/) do |text|
@@ -67,5 +71,7 @@ And(/^I press return button on soft keyboard$/) do
 end
 
 Then(/^I see "([^"]*)" as a current unit converter$/) do |current_unit|
-  text(current_unit)
+  find_element(id: "action_bar").find_element(xpath: "//android.widget.TextView[@text='#{current_unit}']")
 end
+
+
